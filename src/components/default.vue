@@ -1,11 +1,9 @@
 <template>
-  <div class="container my-5">
-    <Home />
+  <div class="container">
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
 
 export default {
   data() {
@@ -18,14 +16,8 @@ export default {
   },
   created() {
     
-  },
-  components:{
-    Home,
-
   }
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
