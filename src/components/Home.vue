@@ -1,15 +1,16 @@
 <template>
   <div class="container">
     <h1 class="mb-3">I tuoi Viaggi</h1>
-    <div class="card">
-      <div class="card-body">
-        This is some text within a card body.
-        <div class="row">
-          <div class="col-3">
-            <h4>Nome:</h4>
-            <h4>Destinazione:</h4>
-            <h4>Descrizione:</h4>
-            <h4>Motto:</h4>
+    <div class="row gy-4">
+      <div class="col-3" v-for="trip in trips">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="text-secondary">ID: {{ trip.id }}</h6>
+            <h5>Nome: {{ trip.title }}</h5>
+            <h5>Descrizione:</h5>
+            <p>{{ trip.description }}</p>
+            <h5>Motto:</h5>
+            <p><em>{{ trip.motto }}</em></p>
           </div>
         </div>
       </div>
@@ -23,7 +24,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      
+      trips: [],
     }
   },
   methods: {
@@ -41,6 +42,7 @@ export default {
       })
       .then((res)=>{
         console.log(res);
+        this.trips = res.data;
       })
     }
   },
@@ -50,4 +52,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// .container{
+//   background-color: green;
+//   color: white;
+// }
+.card{
+  height: 100%;
+}
+
+</style>
