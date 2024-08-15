@@ -1,11 +1,14 @@
 <template>
   <div class="container my-5">
-    <Home />
+    <AppHeader />
+    <RouterView> </RouterView>
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   data() {
@@ -20,7 +23,8 @@ export default {
     
   },
   components:{
-    Home,
+    AppHeader,
+    AppFooter
 
   }
 }
