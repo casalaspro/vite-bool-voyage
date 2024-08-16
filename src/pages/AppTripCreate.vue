@@ -1,10 +1,5 @@
 <template>
   <div class="container">
-    <nav>
-      <div class="d-flex justify-content-center">
-        <img width="400" src="../assets/bool-voyage-logo_white.svg" alt="">
-      </div>
-    </nav>
   </div>
 </template>
 
