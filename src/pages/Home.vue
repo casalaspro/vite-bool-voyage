@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <h1 class="mb-3">I tuoi Viaggi</h1>
     <div class="trips_wrap">
+      <h3 class="section-title mb-3">TRIPS</h3>
       <div class="row gy-4">
         <div class="col-3" v-for="trip in trips">
-          <RouterLink :to="{ name: 'trip.show', params: {id: trip.id} }" class="card">
+          <RouterLink :to="{ name: 'trip.show', params: {id: trip.id}}" class="card">
             <div class="card-body">
-              <h6 class="text-secondary">ID: {{ trip.id }}</h6>
-              <h5>Nome: {{ trip.title }}</h5>
+              <div class="d-flex justify-content-center mb-3">
+                <h5 class="card-title text-center p-3">{{ trip.title }}</h5>
+              </div>
+              <h6 class="card-title_id text-secondary">ID: {{ trip.id }}</h6>
               <h5>Descrizione:</h5>
               <p>{{ trip.description }}</p>
               <h5>Motto:</h5>
@@ -46,7 +48,7 @@ export default {
       // })
       axios({
         method: 'get',
-        url: 'http://localhost:8888/phpsqliteconnect/api.php',
+        url: 'http://localhost:8888/phpsqliteconnect/getTrips.php',
         data: JSON.stringify({}),
         headers: { 'Content-Type': 'application/json', },
         crossdomain: true,
@@ -74,12 +76,23 @@ export default {
     .card{
       text-decoration: none;
       height: 100%;
-      background-color: rgba(255, 255, 255, 0.274);
+      background-color: rgb(255, 255, 255);
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      .card-body{
+        .card-title{
+          color: rgba(247,143,173,1);
+          border-bottom: 1px solid rgba(247,143,173,1);
+          display: inline-block;
+        }
+        .card-title_id{
+          font-family: 'Josefin Sans';
+          font-weight: 300;
+        }
+      }
     }
     div:last-child{
       .card{
-        background-color: rgba(227, 227, 227, 0.26);
+        background-color: rgb(231, 231, 231);
       }
     }
   }

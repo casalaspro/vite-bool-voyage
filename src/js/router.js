@@ -7,7 +7,7 @@ const router = createRouter({
   history: createMemoryHistory(),
   routes:[
     { path: '/', name:'home', component: HomeView },
-    { path: '/trips/:id', name:'trip.show', component: TripView, props: true },
+    { path: '/trips:id', name:'trip.show', component: TripView, props: true },
   ]
 })
 
