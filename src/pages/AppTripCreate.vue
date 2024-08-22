@@ -25,15 +25,17 @@
               <div id="nationsAccordion" class="accordion-collapse collapse" :class="accordion == true ? 'show' : ''"  aria-labelledby="headingOne"           data-bs-parent="#accordionNations">
                 <div class="accordion-body">
                   <p>Choose the nations of your trip</p>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <div class="row">
+                    <div v-for="nation in nations" class="form-check col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                    <input type="checkbox" name="alpha_3" class="form-check-input" :id="'alpha_3_'+nation.id">
+                    <label class="form-check-label" :for="'alpha_3_'+nation.id">{{nation.name}}</label>
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+          <!-- <p v-html="nations" class="error"></p> -->
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -42,20 +44,35 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
   data() {
     return {
-      accordion: false
+      accordion: false,
+      nations : [],
     }
   },
   methods: {
     accordionToggle(){
       this.accordion = !this.accordion
+    },
+    fetchNations(){
+      axios({
+        method: 'get',
+        url: 'http://localhost:8888/phpsqliteconnect/getNations.php',
+        data: JSON.stringify({}),
+        headers: { 'Content-Type': 'application/json', },
+        crossdomain: true,
+      })
+      .then((res)=>{
+        console.log(res);
+        this.nations = res.data;
+      })
     }
+    
   },
   created() {
-    
+    this.fetchNations();
   }
 }
 </script>

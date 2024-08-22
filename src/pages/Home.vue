@@ -43,10 +43,6 @@ export default {
   },
   methods: {
     fetchTrips(){
-      // axios.get('http://localhost:8888/phpsqliteconnect/api.php')
-      // .then((res)=>{
-      //   console.log(res);
-      // })
       axios({
         method: 'get',
         url: 'http://localhost:8888/phpsqliteconnect/getTrips.php',
@@ -91,7 +87,7 @@ export default {
         }
       }
     }
-    div:last-child{
+    div:first-child{
       .card{
         background-color: rgb(231, 231, 231);
       }
