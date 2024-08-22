@@ -3,7 +3,17 @@
     <div class="trips_wrap">
       <h3 class="section-title mb-3">TRIPS</h3>
       <div class="row gy-4">
-        <div class="col-3" v-for="trip in trips">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <RouterLink :to="{ name: 'trip.create'}" class="card">
+            <div class="card-body">
+              <div class="more-trips_btn d-flex justify-content-center align-items-center">
+                <span>&plus;</span>
+              </div>
+            </div>
+          </RouterLink>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" v-for="trip in trips">
           <RouterLink :to="{ name: 'trip.show', params: {id: trip.id}}" class="card">
             <div class="card-body">
               <div class="d-flex justify-content-center mb-3">
@@ -16,15 +26,6 @@
               <p><em>{{ trip.motto }}</em></p>
             </div>
           </RouterLink>
-        </div>
-        <div class="col-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="more-trips_btn d-flex justify-content-center align-items-center">
-                <span>&plus;</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

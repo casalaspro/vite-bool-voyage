@@ -2,7 +2,7 @@
   <div class="container d-flex justify-content-center">
     <div class="wrap-card py-4">
       <h1 class="mb-4 text-center">{{trip.title}}</h1>
-      <RouterLink class="router-link d-flex align-items-center" :to="{ name: 'home'}"><p><font-awesome-icon class="me-1" :icon="['fas', 'chevron-left']" />Torna ai Tuoi Viaggi</p></RouterLink>
+      <RouterLink class="router-link d-flex align-items-center mb-3" :to="{ name: 'home'}"><p><font-awesome-icon class="me-1" :icon="['fas', 'chevron-left']" />Torna ai Tuoi Viaggi</p></RouterLink>
     <!-- If there are errors i catch them inside a div -->
     <div v-html="errors"></div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mb-3">
     <nav>
       <div class="d-flex justify-content-center">
         <img class="logo_svg" width="400" src="../assets/bool-voyage-logo_no-shadow.svg" alt="">
